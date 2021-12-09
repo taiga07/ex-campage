@@ -1,0 +1,12 @@
+<% @images.each do |image| %>
+  <div>
+
+    <p>投稿ユーザー画像<%= image.user.name%></p>
+    <p>キャンプ場:<%= image.camp_site_name %></p>
+    <%= link_to image_path(image.id) do %>
+      <%= attachment_image_tag image, :image %>
+    <%end%>
+    <%= image.caption %>
+
+ </div>
+<%end%>
