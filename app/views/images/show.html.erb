@@ -1,9 +1,19 @@
 <div>
-  <p>投稿ユーザー画像<%= @image.user.name%></p>
+  <p><!--投稿ユーザー画像--><%= @image.user.name%></p>
   <p>キャンプ場:<%= @image.camp_site_name %></p>
   <%= attachment_image_tag @image, :image, :fill, 500, 500 %>
   <p><%= @image.caption %></p>
   <% if @image.user == current_user %>
     <%= link_to "削除",image_path(@image),method: :delete %>
   <%end%>
+</div>
+
+<div>
+  <p>コメント<%= @image.comments.count%>件</p>
+  <% @image.comments.each do |comment| %>
+    <p><!--投稿ユーザー画像--></p>
+    <%= comment.user.name %>
+    <!--何分前の投稿か-->
+    <%= comment.comment %>
+    <%end%>
 </div>
